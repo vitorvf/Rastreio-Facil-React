@@ -51,23 +51,24 @@ export function Blog() {
   const [rastreios, setRastreios] = useState<Company>();
   const navigate = useNavigate();
 
+  const { getPosts } = useContext(CartContext);
 
-const getPosts = async (query: string = "") => {
-  try {
-    setIsLoading(true);
-    const response = await api.get(
-      `/${query}`
-    );
-    navigate(`/post/${query}`, );
-
-    setRastreios(response.data);
-
-  } finally {
-    setIsLoading(false);
+// const getPosts = async (query: string = "") => {
+//   try {
+//     setIsLoading(true);
+//     const response = await api.get(
+//       `/${query}`
+//     );
+//     navigate(`/post/${query}`, );
     
-  }
+//     setRastreios(response.data);
 
-};
+//   } finally {
+//     setIsLoading(false);
+    
+//   }
+
+// };
 
 
 
@@ -88,7 +89,7 @@ const getPosts = async (query: string = "") => {
   return (
     <>
       <Profile />
-      <SearchInput  getPosts={getPosts} />
+      <SearchInput  />
       {isLoading ? (
         <Spinner />
       ) : (

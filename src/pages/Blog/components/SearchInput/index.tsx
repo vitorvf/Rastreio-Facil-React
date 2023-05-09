@@ -7,22 +7,20 @@ import { CartContext } from "../../../../contexts/CartContext";
 import { api } from "../../../../lib/axios";
 
 
-
 const searchFormSchema = z.object({
   query: z.string(),
 });
 
 type SearchFormInput = z.infer<typeof searchFormSchema>;
 
-interface SearchInputProps {
-  // postsLength: number;
-  getPosts: (query?: string) => Promise<void>;
-}
+interface SearchInputProps {}
 
-export function SearchInput({ getPosts }: SearchInputProps) {
+export function SearchInput(props: SearchInputProps) {
   const { register, handleSubmit } = useForm<SearchFormInput>({
     resolver: zodResolver(searchFormSchema),
   });
+
+  const { getPosts } = useContext(CartContext);
 
   async function handleSearchPosts(data: SearchFormInput) {
     await getPosts(data.query);
@@ -39,3 +37,35 @@ export function SearchInput({ getPosts }: SearchInputProps) {
     </SearchInputContainer>
   );
 }
+
+// const searchFormSchema = z.object({
+//   query: z.string(),
+// });
+
+// type SearchFormInput = z.infer<typeof searchFormSchema>;
+
+// interface SearchInputProps {
+//   // postsLength: number;
+//   getPosts: (query?: string) => Promise<void>;
+// }
+
+// export function SearchInput({ getPosts }: SearchInputProps) {
+//   const { register, handleSubmit } = useForm<SearchFormInput>({
+//     resolver: zodResolver(searchFormSchema),
+//   });
+
+//   async function handleSearchPosts(data: SearchFormInput) {
+//     await getPosts(data.query);
+//   }
+
+//   return (
+//     <SearchInputContainer onSubmit={handleSubmit(handleSearchPosts)}>
+//       <header>
+//         <h3>Publicações</h3>
+//         <span> publicações</span>
+//       </header>
+
+//       <input type="text" placeholder="Buscar conteúdo" {...register("query")} />
+//     </SearchInputContainer>
+//   );
+// }

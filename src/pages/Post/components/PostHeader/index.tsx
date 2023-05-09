@@ -12,49 +12,30 @@ import { relativeDateFormatter } from "../../../../utils/formatter";
 import { PostHeaderContainer } from "./styles";
 import { PostsUsuario } from "../../../Blog";
 import { DadosUsuario } from "../../../Blog/components/Profile";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../../../lib/axios";
+import { CartContext } from "../../../../contexts/CartContext";
 
 
 
-export interface PostHeaderType {
-  title:string;
-  followers: number;
-  bio: string;
-  name: string;
-  html_url:string;
-  avatar_url:string;
-  company?:string;
-  comments?:string;
-  created_at: string;
 
-  user:{
-    login: string;
 
-  }
-
-}
-
-interface PostHeaderProps {
-  postData: PostHeaderType;
-  isLoading: boolean;
-}
-
-export function PostHeader({postData, isLoading }:PostHeaderProps) {
+export function PostHeader() {
   const navigate = useNavigate();
+  const { rastreios } = useContext(CartContext);
 
 
   function goBack() {
     navigate(-1);
   }
 
-  const formattedDate = relativeDateFormatter(postData?.created_at);
+  // const formattedDate = relativeDateFormatter(postData?.created_at);
 
   return (
     <PostHeaderContainer>
-      {isLoading ? (
+      {/* {isLoading ? (
         <Spinner />
-      ) : (
+      ) : ( */}
         <>
           <header>
             <ExternalLink
@@ -66,28 +47,28 @@ export function PostHeader({postData, isLoading }:PostHeaderProps) {
             />
             <ExternalLink
               text="Ver no Github"
-              href={postData?.html_url}
+            
               target="_blank"
             />
           </header>
 
-          <h1>{postData?.title}</h1>
+          <h1>{rastreios?.status}</h1>
           <ul>
             <li>
               <FontAwesomeIcon icon={faGithub} />
-              {postData?.user.login}
+             login
             </li>
             <li>
               <FontAwesomeIcon icon={faCalendar} />
-            {formattedDate}
+          data
             </li>
             <li>
               <FontAwesomeIcon icon={faComment} />
-              {postData?.comments} comentários
+            comentários
             </li>
           </ul>
         </>
-       )} 
+       {/* )}  */}
     </PostHeaderContainer>
   );
 }
