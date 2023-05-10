@@ -47,12 +47,11 @@ export interface Company {
 
 
 export function Blog() {
-  const [isLoading, setIsLoading] = useState(true);
   const [rastreios, setRastreios] = useState<Company>();
   const navigate = useNavigate();
 
-  const { getPosts } = useContext(CartContext);
-
+  // const { getPosts, isLoading } = useContext(CartContext);
+  // console.log(isLoading)
 // const getPosts = async (query: string = "") => {
 //   try {
 //     setIsLoading(true);
@@ -90,13 +89,13 @@ export function Blog() {
     <>
       <Profile />
       <SearchInput  />
-      {isLoading ? (
+      {/* {isLoading ? (
         <Spinner />
       ) : (
         <PostsListContainer>
-        {/* <Post rastreios={rastreios}/> */}
+        <Post rastreios={rastreios}/>
         </PostsListContainer>
-       )}  
+       )}   */}
     </>
   );
 }

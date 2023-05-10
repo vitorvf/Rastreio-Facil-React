@@ -8,8 +8,11 @@ export function Router() {
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Blog />} />
-        <Route path="/post/:id" element={<Post />} />
+        <Route path="/tracking/:code" element={<Post />} />
       </Route>
     </Routes>
   );
 }
+
+  // { path: "/", lazy: async () => ({ Component: HomePage }) },
+  // { path: "/tracking/:code", lazy: async () => ({ Component: TrackingPage }) },

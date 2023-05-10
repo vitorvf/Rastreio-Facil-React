@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState, useEffect } from "react";
+import { createContext, ReactNode, useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../lib/axios";
 
@@ -36,43 +36,75 @@ interface Transaction {
   createdAt: string;
 }
 
-interface CartContextType {
-  getPosts: (query?: string) => Promise<void>;
-  rastreios?: Company | undefined; // Adicionar propriedade opcional
+// interface CartContextType {
+//   getPosts: (query?: string) => Promise<void>;
+//   rastreios?: Company | undefined; // Adicionar propriedade opcional
+//   isLoading?: boolean;
 
+// }
+
+interface GlobalContextValue {
+  code: string;
+  setCode: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface CartContextProviderProps {
-  children: ReactNode;
+  // children: ReactNode;
+  children: React.ReactNode;
+
 }
 
-export const CartContext = createContext<CartContextType>({
-  getPosts: async () => {}, // Valor padrão
+export const CartContext = createContext(null as unknown as GlobalContextValue);
 
-});
+
+// export const CartContext = createContext<CartContextType>({
+//   getPosts: async () => {}, // Valor padrão
+
+// });
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [rastreios, setRastreios] = useState<Company>();
-   const navigate = useNavigate();
+  const [code, setCode] = useState("");
+  const value = useMemo<GlobalContextValue>(() => ({ code, setCode }), [code]);
+  // const [rastreios, setRastreios] = useState<Company>();
+  // const [isLoading, setIsLoading] = useState(true);
+  // const navigate = useNavigate();
 
 
-  async function getPosts(query?: string) {
-    try {
-      const response = await api.get(`/${query}`);
-      setRastreios(response.data.data);
-      navigate(`/post/${query}`, );
+  // async function getPosts(query?: string) {
+  //   try {
+  //     setIsLoading(true)
+  //     const response = await api.get(`/${query}`);
+  //     setRastreios(response.data.data);
 
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     navigate(`/post/${query}`, );
+  //     setIsLoading(false);
 
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+    
+  // }
   return (
-    <CartContext.Provider value={{ getPosts, rastreios }}>
+    <CartContext.Provider value={value}>
       {children}
     </CartContext.Provider>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Code An5tigo
 
 // export interface Company {
 //   id: number;

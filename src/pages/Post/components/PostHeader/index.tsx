@@ -10,19 +10,24 @@ import { ExternalLink } from "../../../../components/ExternalLink";
 import { Spinner } from "../../../../components/Spinner";
 import { relativeDateFormatter } from "../../../../utils/formatter";
 import { PostHeaderContainer } from "./styles";
-import { PostsUsuario } from "../../../Blog";
+// import { PostsUsuario } from "../../../Blog";
 import { DadosUsuario } from "../../../Blog/components/Profile";
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../../../lib/axios";
 import { CartContext } from "../../../../contexts/CartContext";
+import { Company } from "../..";
+
+interface name {
+  data?:Company;
+  isLoading: boolean;
+}
 
 
 
-
-
-export function PostHeader() {
+export function PostHeader({isLoading, data}:name) {
   const navigate = useNavigate();
-  const { rastreios } = useContext(CartContext);
+  // const { rastreios, isLoading } = useContext(CartContext);
+  // console.log(isLoading)
 
 
   function goBack() {
@@ -33,9 +38,9 @@ export function PostHeader() {
 
   return (
     <PostHeaderContainer>
-      {/* {isLoading ? (
+      {isLoading ? (
         <Spinner />
-      ) : ( */}
+      ) : (
         <>
           <header>
             <ExternalLink
@@ -52,7 +57,7 @@ export function PostHeader() {
             />
           </header>
 
-          <h1>{rastreios?.status}</h1>
+          <h1>{data?.status}</h1>
           <ul>
             <li>
               <FontAwesomeIcon icon={faGithub} />
@@ -68,7 +73,7 @@ export function PostHeader() {
             </li>
           </ul>
         </>
-       {/* )}  */}
+        )}  
     </PostHeaderContainer>
   );
 }

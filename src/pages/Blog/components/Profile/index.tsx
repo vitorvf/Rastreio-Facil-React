@@ -22,7 +22,7 @@ export interface DadosUsuario {
 
 export function Profile() {
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [profileData, setProfileData] = useState<DadosUsuario | null>(null);
   // const username = 'vitorvf'
 
