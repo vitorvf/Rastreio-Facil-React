@@ -49,18 +49,15 @@ export function Post() {
   // const [isLoading, setIsLoading] = useState(true);
   // const {rastreios, isLoading} = useContext(CartContext)
   // const { id } = useParams();
-  
-
 
   // useEffect(() => {
-    
+
   //   api.get(`/NL526277041BR/`)
   //     .then(response => {
   //       setPostData(response.data);
   //       setIsLoading(false);
   //       console.log(response.data)
 
-       
   //     })
   //     .catch(error => {
   //       console.log(error);
@@ -74,9 +71,15 @@ export function Post() {
       .catch((err) => setError(err))
       .finally(() => setIsLoading(false));
   }, [code]);
+  const ultimaData = data?.events
+    .map((event) => event.date)
+    .sort()
+    .reverse()
+    .shift();
+
   return (
     <>
-    {/* <div>
+      {/* <div>
       <Link to="/">Voltar</Link>
       <h1>Tracking Page</h1>
       <pre><code>{JSON.stringify({ code })}</code></pre>
@@ -84,10 +87,10 @@ export function Post() {
       {isLoading &&  <Spinner />}
       {data && <pre><code>{JSON.stringify(data, null, 4)}</code></pre>}
     </div> */}
-    <PostHeader data={data} isLoading={isLoading} />
-    {!isLoading && <PostContent data={data} />}
+      <PostHeader data={data} isLoading={isLoading} />
+      {!isLoading && <PostContent data={data} />}
 
-    {/* <PostHeader />
+      {/* <PostHeader />
     {!isLoading && <PostContent/>} */}
       {/* <PostHeader isLoading={isLoading} postData={postData} />
       {!isLoading && <PostContent content={postData.body} />} */}

@@ -88,7 +88,7 @@ export function Blog() {
   return (
     <>
       <Profile />
-      <SearchInput  />
+      {/* <SearchInput  /> */}
       {/* {isLoading ? (
         <Spinner />
       ) : (

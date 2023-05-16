@@ -2,11 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ExternalLink } from "../../../../components/ExternalLink";
 import { ProfileContainer, ProfileDetails, ProfilePicture } from "./styles";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faBuilding, faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import { faGaugeHigh, faPersonRunning, faShieldHalved } from "@fortawesome/free-solid-svg-icons";
 import { useCallback, useEffect, useState } from "react";
 import { api } from "../../../../lib/axios";
 import { Spinner } from "../../../../components/Spinner";
-
+import caixa from "../../../../assets/Caixa.svg"
+import { SearchInput } from "../SearchInput";
 
 export interface DadosUsuario {
   login: string;
@@ -46,11 +47,12 @@ export function Profile() {
         <Spinner />
       ) : (
         <>
-          <ProfilePicture src={profileData?.avatar_url}/>
+          <ProfilePicture src={caixa}/>
+        
 
           <ProfileDetails>
             <header>
-              <h1>{profileData?.name}</h1>
+              <h1>Rastreie suas encomendas gratuitamente</h1>
 
               <ExternalLink
                 text="Github"
@@ -58,21 +60,23 @@ export function Profile() {
                 target="_blank"
               />
             </header>
-            <p>{profileData?.bio}</p>
+            <p>Informe o código de rastreio abaixo para rastreamento</p>
+            <SearchInput  />
             <ul>
               <li>
-                <FontAwesomeIcon icon={faGithub} />
-                {profileData?.login}
+                <FontAwesomeIcon icon={faGaugeHigh} />
+              Velocidade
               </li>
-              {profileData?.company && (
+              {/* {profileData?.company && ( */}
                 <li>
-                  <FontAwesomeIcon icon={faBuilding} />
-                  {profileData?.company}
+                  {/* <FontAwesomeIcon icon={faBuilding} /> */}
+                  <FontAwesomeIcon icon={faShieldHalved} />
+                 Segurança
                 </li>
-              )}
+              {/* )} */}
               <li>
-                <FontAwesomeIcon icon={faUserGroup} />
-               {profileData?.followers} Seguidores
+                <FontAwesomeIcon icon={faPersonRunning} />
+               Agilidade
               </li>
             </ul>
           </ProfileDetails>

@@ -11,6 +11,11 @@ export const defaultTheme = {
     "base-subtitle": "#C4D4E3",
     "base-title": "#E7EDF4",
     "brand-blue": "#3294F8",
+    "base-new": "#0450a0",
+    "base-second-subtitle": "#4883c1",
+    "base-input-border": "#0450a0;",
+    "base-white": "white",
+
   },
   textSizes: {
     "title-title-l": "1.5rem",

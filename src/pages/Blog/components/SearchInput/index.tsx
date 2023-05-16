@@ -34,10 +34,10 @@ export function SearchInput () {
   return (
     <SearchInputContainer  onSubmit={handleSubmit(handleValid)}>
        <header>
-         <h3>Publicações</h3>
-         <span> publicações</span>
+         {/* <h3>Publicações</h3>
+         <span> publicações</span> */}
        </header>
-       <input placeholder="Rastrear Encomendas" {...register("code")} />
+       <input placeholder="EX: ON123456789BR" {...register("code")} />
 
        {/* <input type="text" placeholder="Buscar conteúdo" {...register("query")} /> */}
     </SearchInputContainer>
