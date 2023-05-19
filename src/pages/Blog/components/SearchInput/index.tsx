@@ -31,9 +31,17 @@ export function SearchInput() {
 
   const handleValid: SubmitHandler<Schema> = (data) => {
     setCode(data.code);
+
+    const existingHistory = localStorage.getItem("trackingHistory");
+    const history = existingHistory ? JSON.parse(existingHistory) : [];
+
+    if (!history.includes(data.code)) {
+      history.push(data.code);
+      localStorage.setItem("trackingHistory", JSON.stringify(history));
+    }
+
     navigate(`/tracking/${data.code}`);
   };
-
   return (
     <SearchInputContainer onSubmit={handleSubmit(handleValid)}>
       <header>

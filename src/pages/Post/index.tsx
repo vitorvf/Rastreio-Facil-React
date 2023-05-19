@@ -81,21 +81,8 @@ export function Post() {
 
   return (
     <>
-      {/* <div>
-      <Link to="/">Voltar</Link>
-      <h1>Tracking Page</h1>
-      <pre><code>{JSON.stringify({ code })}</code></pre>
-      {error && <p>{String(error)}</p>}
-      {isLoading &&  <Spinner />}
-      {data && <pre><code>{JSON.stringify(data, null, 4)}</code></pre>}
-    </div> */}
       <PostHeader data={data} isLoading={isLoading} />
       {!isLoading && <PostContent data={data} />}
-
-      {/* <PostHeader />
-    {!isLoading && <PostContent/>} */}
-      {/* <PostHeader isLoading={isLoading} postData={postData} />
-      {!isLoading && <PostContent content={postData.body} />} */}
     </>
   );
 }

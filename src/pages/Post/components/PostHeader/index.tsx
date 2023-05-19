@@ -67,6 +67,10 @@ export function PostHeader({ isLoading, data }: name) {
     navigate("/");
   }
 
+  function goHistory() {
+    navigate("/historico");
+  }
+
   return (
     <PostHeaderContainer>
       {isLoading ? (
@@ -85,6 +89,7 @@ export function PostHeader({ isLoading, data }: name) {
             <ExternalLink
               text="Ver no Historico de Rastreios"
               target="_blank"
+              onClick={goHistory}
             />
           </header>
 
