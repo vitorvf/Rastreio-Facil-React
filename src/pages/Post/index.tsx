@@ -45,6 +45,8 @@ export function Post() {
   const [data, setData] = useState<Company>();
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [historico, setHistorico] = useState([]);
+
   // const [postData, setPostData] = useState<PostHeaderType>({} as PostHeaderType);
   // const [isLoading, setIsLoading] = useState(true);
   // const {rastreios, isLoading} = useContext(CartContext)

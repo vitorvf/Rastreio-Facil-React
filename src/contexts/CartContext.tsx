@@ -51,11 +51,9 @@ interface GlobalContextValue {
 interface CartContextProviderProps {
   // children: ReactNode;
   children: React.ReactNode;
-
 }
 
 export const CartContext = createContext(null as unknown as GlobalContextValue);
-
 
 // export const CartContext = createContext<CartContextType>({
 //   getPosts: async () => {}, // Valor padrão
@@ -69,7 +67,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   // const [isLoading, setIsLoading] = useState(true);
   // const navigate = useNavigate();
 
-
   // async function getPosts(query?: string) {
   //   try {
   //     setIsLoading(true)
@@ -82,27 +79,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   //   } catch (error) {
   //     console.log(error);
   //   }
-    
+
   // }
-  return (
-    <CartContext.Provider value={value}>
-      {children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Code An5tigo
 
@@ -145,15 +125,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 //   getPosts?: (query?: string) => Promise<void>;
 //   isLoading?: boolean;
 
-
 // }
 
 // interface TransactionsProviderProps {
 //   children: ReactNode;
 // }
-
-
-
 
 // export const CartContext = createContext({
 //   getPosts: async () => {}, // Valor padrão
@@ -166,7 +142,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 //   const [rastreios, setRastreios] = useState<Company>();
 //   const navigate = useNavigate();
 
-
 // const getPosts = async (query: string = "") => {
 //   try {
 //     setIsLoading(true);
@@ -174,7 +149,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 //       `/${query}`
 //     );
 //     navigate(`/post/${query}`, );
-    
+
 //     setRastreios(response.data);
 //   } finally {
 //     setIsLoading(false);

@@ -9,7 +9,7 @@ export const PostHeaderContainer = styled.section`
 
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  padding: 2rem;
+  padding: 2rem; //conferir
   display: flex;
   flex-direction: column;
 

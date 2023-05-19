@@ -1,12 +1,11 @@
 import { SearchInputContainer } from "./styles";
 import * as z from "zod";
-import { useForm, SubmitHandler  } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useContext } from "react";
 import { CartContext } from "../../../../contexts/CartContext";
 import { api } from "../../../../lib/axios";
 import { useNavigate } from "react-router-dom";
-
 
 // import { zodResolver } from "@hookform/resolvers/zod";
 // import { SubmitHandler, useForm } from "react-hook-form";
@@ -17,8 +16,12 @@ import { useNavigate } from "react-router-dom";
 const schema = z.object({ code: z.string().min(1).max(255) }).required();
 type Schema = z.infer<typeof schema>;
 
-export function SearchInput () {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+export function SearchInput() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(schema),
     defaultValues: { code: "" },
   });
@@ -32,14 +35,14 @@ export function SearchInput () {
   };
 
   return (
-    <SearchInputContainer  onSubmit={handleSubmit(handleValid)}>
-       <header>
-         {/* <h3>Publicações</h3>
+    <SearchInputContainer onSubmit={handleSubmit(handleValid)}>
+      <header>
+        {/* <h3>Publicações</h3>
          <span> publicações</span> */}
-       </header>
-       <input placeholder="EX: ON123456789BR" {...register("code")} />
+      </header>
+      <input placeholder="EX: ON123456789BR" {...register("code")} />
 
-       {/* <input type="text" placeholder="Buscar conteúdo" {...register("query")} /> */}
+      {/* <input type="text" placeholder="Buscar conteúdo" {...register("query")} /> */}
     </SearchInputContainer>
 
     // <form onSubmit={handleSubmit(handleValid)}>
@@ -49,11 +52,6 @@ export function SearchInput () {
     // </form>
   );
 }
-
-
-
-
-
 
 //Ultimo antigo, o mais recente.
 
@@ -87,9 +85,6 @@ export function SearchInput () {
 //     </SearchInputContainer>
 //   );
 // }
-
-
-
 
 //Antigo dos Antigos
 

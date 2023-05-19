@@ -82,6 +82,7 @@ export const PostContentContainer = styled.section`
   background: white;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   margin-top: 4rem;
+  border-radius: 10px;
 
   img {
     width: 100%;

@@ -19,7 +19,6 @@ import {
   SecondDiv,
   TextoSpan,
 } from "./styles";
-// import { PostsUsuario } from "../../../Blog";
 import { DadosUsuario } from "../../../Blog/components/Profile";
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../../../lib/axios";
@@ -33,6 +32,7 @@ interface name {
 }
 
 export function PostHeader({ isLoading, data }: name) {
+  console.log(data);
   const ultimaData = data?.events
     .map((event) => event.date)
     .sort()
@@ -44,9 +44,28 @@ export function PostHeader({ isLoading, data }: name) {
 
   const lastUf = data?.events.map((event) => event.uf).pop();
 
-  console.log(lastCity);
+  const isDeliveryInProgress =
+    data?.events.some(
+      (event) => event.events === "Objeto saiu para entrega ao destinatário"
+    ) ||
+    data?.events.some(
+      (event) => event.events === "Objeto está em rota de entrega"
+    );
+
+  const IsDeliveryEntregue =
+    data?.events.some(
+      (event) => event.events === "Objeto entregue ao destinatário"
+    ) ||
+    data?.events.some(
+      (event) => event.events === "Objeto entregue ao destinatário"
+    );
+
   const navigate = useNavigate();
-  const formattedDate = relativeDateFormatter(ultimaData);
+  // const formattedDate = relativeDateFormatter(ultimaData);
+
+  function goBack() {
+    navigate("/");
+  }
 
   return (
     <PostHeaderContainer>
@@ -54,6 +73,21 @@ export function PostHeader({ isLoading, data }: name) {
         <Spinner />
       ) : (
         <div>
+          <header>
+            <ExternalLink
+              as="button"
+              onClick={goBack}
+              icon={<FontAwesomeIcon icon={faChevronLeft} />}
+              text="Voltar"
+              variant="iconLeft"
+            />
+
+            <ExternalLink
+              text="Ver no Historico de Rastreios"
+              target="_blank"
+            />
+          </header>
+
           <DivHeader className="infostyle__ContornPosition-sc-1wgwhwr-4 hEDUmL">
             <SecondDiv className="infostyle__CardDiv-sc-1wgwhwr-5 eYAzqh">
               <ImgSpan
@@ -138,20 +172,19 @@ export function PostHeader({ isLoading, data }: name) {
             <SecondDiv className="infostyle__CardDiv-sc-1wgwhwr-5 eYAzqh">
               <ImgSpan3
                 style={{
-                  backgroundImage: `url(${
-                    data?.events[7]?.tag === "onroute"
-                      ? "https://rastreiovf.netlify.app/images/saiu-verde.png"
-                      : "https://rastreiovf.netlify.app/images/saiu-cinza.png"
-                  })`,
+                  backgroundImage: isDeliveryInProgress
+                    ? "url('https://rastreiovf.netlify.app/images/saiu-verde.png')"
+                    : "url('https://rastreiovf.netlify.app/images/saiu-cinza.png')",
+                  // Estilo personalizado aqui
                 }}
               ></ImgSpan3>
+
               <TextoSpan>
                 <h5
                   style={{
-                    color:
-                      data?.events[7]?.tag === "onroute"
-                        ? `#2bc866	`
-                        : "rgb(200, 205, 218)",
+                    color: isDeliveryInProgress
+                      ? `#2bc866	`
+                      : "rgb(200, 205, 218)",
                   }}
                 >
                   Saiu para a entrega
@@ -160,10 +193,9 @@ export function PostHeader({ isLoading, data }: name) {
               </TextoSpan>
               <Linha
                 style={{
-                  backgroundColor:
-                    data?.events[7]?.tag === "onroute"
-                      ? "rgb(43, 200, 102)"
-                      : "rgb(200, 205, 218)",
+                  backgroundColor: IsDeliveryEntregue
+                    ? "rgb(43, 200, 102)"
+                    : "rgb(200, 205, 218)",
                 }}
               ></Linha>
             </SecondDiv>
@@ -173,7 +205,7 @@ export function PostHeader({ isLoading, data }: name) {
                 className="imgspan4"
                 style={{
                   backgroundImage: `url(${
-                    data?.events[11]?.tag === "delivered"
+                    IsDeliveryEntregue
                       ? "https://rastreiovf.netlify.app/images/entregue-verde.png"
                       : "https://rastreiovf.netlify.app/images/entregue-cinza.png"
                   })`,
@@ -182,10 +214,9 @@ export function PostHeader({ isLoading, data }: name) {
               <TextoSpan>
                 <h5
                   style={{
-                    color:
-                      data?.events[11]?.tag === "delivered"
-                        ? `#2bc866	`
-                        : "rgb(200, 205, 218)",
+                    color: IsDeliveryEntregue
+                      ? `#2bc866	`
+                      : "rgb(200, 205, 218)",
                   }}
                 >
                   Entregue
