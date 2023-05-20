@@ -1,13 +1,3 @@
-// import moment from "moment";
-
-// export function relativeDateFormatter(date: string | undefined) {
-//   if (date === undefined) {
-//     return "";
-//   } else {
-//     return moment(date).fromNow();
-//   }
-// }
-
 import moment from "moment";
 
 export function relativeDateFormatter(

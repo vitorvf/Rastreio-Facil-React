@@ -5,8 +5,6 @@ export const HeaderContainer = styled.header`
   width: 100%;
   height: 18.5rem;
   background-image: url(https://melhorenvio.com.br/images/blue-pattern.png?c5103305495a891f76a824f377afb9f8);
-
-  /* background: url(${headerBg}) no-repeat center; */
   background-size: cover;
   display: flex;
   align-items: center;

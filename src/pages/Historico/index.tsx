@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ExternalLink } from "../../components/ExternalLink";
-import { DivTest, HistoryContainer, HistoryList, Status } from "./styles";
+import {
+  DivTest,
+  HistoryContainer,
+  HistoryList,
+  ImgDelete,
+  ParafragoNaoEncontrado,
+  Status,
+} from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import imgpackage from "../../assets/Results/img-package.png";
+import imgdelete from "../../assets/Results/delete.svg";
+
 export function Historico() {
   const navigate = useNavigate();
   const [trackingHistory, setTrackingHistory] = useState<string[]>([]);
@@ -34,6 +44,7 @@ export function Historico() {
   function goGit() {
     navigate("/");
   }
+
   return (
     <DivTest>
       <header>
@@ -60,7 +71,9 @@ export function Historico() {
             <table>
               <thead>
                 <tr>
-                  <th>Tarefa</th>
+                  <th>
+                    Clique em seu código para ser redirecionado à sua encomenda.
+                  </th>
                   {/* <th>Duração</th> */}
                   {/* <th>Duração</th>
                   <th>Status</th> */}
@@ -72,77 +85,20 @@ export function Historico() {
                     <td
                       onClick={() => handleTrackingClick(trackingCode)}
                       style={{ cursor: "pointer" }}
+                      className={
+                        index === trackingHistory.length - 1 ? "last-td" : ""
+                      }
                     >
-                      <img
-                        src="https://rastreamentocorreios.info/img/img-package.png"
-                        alt="Ícone"
-                      ></img>
+                      <img src={imgpackage} alt="imgpackage" />
                       <span>{trackingCode}</span>
-
-                      <svg
+                      <ImgDelete
                         onClick={(event) => {
                           event.stopPropagation();
                           handleRemoveTrackingCode(trackingCode);
                         }}
-                        style={{ cursor: "pointer" }}
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="17"
-                        height="17"
-                        fill="currentColor"
-                        viewBox="0 0 256 256"
-                        class="_trashIcon_130gk_46"
-                      >
-                        <rect width="256" height="256" fill="none"></rect>
-                        <line
-                          x1="216"
-                          y1="56"
-                          x2="40"
-                          y2="56"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="16"
-                        ></line>
-                        <line
-                          x1="104"
-                          y1="104"
-                          x2="104"
-                          y2="168"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="16"
-                        ></line>
-                        <line
-                          x1="152"
-                          y1="104"
-                          x2="152"
-                          y2="168"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="16"
-                        ></line>
-                        <path
-                          d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="16"
-                        ></path>
-                        <path
-                          d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="16"
-                        ></path>
-                      </svg>
+                        src={imgdelete}
+                        alt="Deletar"
+                      />
                     </td>
                     {/* <td>1 minutos</td>
                     <td>data</td> */}
@@ -155,37 +111,11 @@ export function Historico() {
             </table>
           </HistoryList>
         ) : (
-          <p>Nenhum rastreamento encontrado.</p>
+          <ParafragoNaoEncontrado>
+            Nenhum rastreamento encontrado.
+          </ParafragoNaoEncontrado>
         )}
       </HistoryContainer>
     </DivTest>
   );
 }
-
-// <div>
-//   <ExternalLink
-//     text="Ver no Historico de Rastreios"
-//     target="_blank"
-//     onClick={gohome}
-//   />
-//   <h2>Histórico de Consultas</h2>
-//   {trackingHistory.length > 0 ? (
-//     <ul>
-//       {trackingHistory.map((trackingCode, index) => (
-//         <li key={index}>
-//           <span
-//             onClick={() => handleTrackingClick(trackingCode)}
-//             style={{ cursor: "pointer" }}
-//           >
-//             {trackingCode}
-//           </span>
-//           <button onClick={() => handleRemoveTrackingCode(trackingCode)}>
-//             Remover
-//           </button>
-//         </li>
-//       ))}
-//     </ul>
-//   ) : (
-//     <p>Nenhum rastreamento encontrado.</p>
-//   )}
-// </div>

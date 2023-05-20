@@ -37,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.colors["base-background"]};
+    background: white;
     background-image: url(https://i.imgur.com/nGLykwe.png);
     background-repeat: repeat;
     color: ${({ theme }) => theme.colors["base-text"]};

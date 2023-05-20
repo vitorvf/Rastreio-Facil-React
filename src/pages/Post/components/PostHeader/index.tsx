@@ -41,8 +41,38 @@ export function PostHeader({ isLoading, data }: name) {
   // const cities = data?.events.map(event => event.city);
   const lastCity = data?.events.map((event) => event.city).pop();
   const local = data?.events.map((event) => event.local).pop();
-
   const lastUf = data?.events.map((event) => event.uf).pop();
+
+  //Pegar a ultima data da encomenda Postada
+  const postadoData = relativeDateFormatter(
+    data?.events.find((event) => event.tag === "posted")?.date,
+    "customFormat"
+  );
+  //Nesse código, find() retorna o primeiro evento que satisfaz a condição event.tag === "movement".
+  //O operador ?. é usado para verificar se o evento foi encontrado antes de acessar a data.
+  //Se o evento for encontrado, a data será atribuída a lastMovementDate.
+  //Caso contrário, lastMovementDate será undefined.
+
+  //Usando RelativeDateFormatter para formatar minha data.
+
+  const encaminhadoData = relativeDateFormatter(
+    data?.events.find((event) => event.tag === "movement")?.date,
+    "customFormat"
+  );
+
+  const saiuEntregaData = relativeDateFormatter(
+    data?.events.find(
+      (event) =>
+        event.events === "Objeto saiu para entrega ao destinatário" || event.events === "Objeto está em rota de entrega" ||
+        event.tag === "onroute"
+    )?.date,
+    "customFormat"
+  );
+
+  const entregueData = relativeDateFormatter(
+    data?.events.find((event) => event.tag === "delivered")?.date,
+    "customFormat"
+  );
 
   const isDeliveryInProgress =
     data?.events.some(
@@ -87,7 +117,8 @@ export function PostHeader({ isLoading, data }: name) {
             />
 
             <ExternalLink
-              text="Ver no Historico de Rastreios"
+              as="button"
+              text="Historico de Rastreios"
               target="_blank"
               onClick={goHistory}
             />
@@ -120,7 +151,7 @@ export function PostHeader({ isLoading, data }: name) {
                 >
                   Postado
                 </h5>
-                <span>2023-04-23 13:59:00</span>
+                <span>{postadoData}</span>
               </TextoSpan>
 
               <Linha
@@ -161,7 +192,7 @@ export function PostHeader({ isLoading, data }: name) {
                 >
                   Encaminhado
                 </h5>
-                <span>2023-04-27 06:02:00</span>
+                <span>{encaminhadoData}</span>
               </TextoSpan>
 
               <Linha
@@ -194,7 +225,7 @@ export function PostHeader({ isLoading, data }: name) {
                 >
                   Saiu para a entrega
                 </h5>
-                <span>2023-04-28 12:39:00</span>
+                <span>{saiuEntregaData}</span>
               </TextoSpan>
               <Linha
                 style={{
@@ -226,7 +257,7 @@ export function PostHeader({ isLoading, data }: name) {
                 >
                   Entregue
                 </h5>
-                <span>2023-04-29 05:13:00</span>
+                <span>{entregueData}</span>
               </TextoSpan>
             </SecondDiv>
           </DivHeader>

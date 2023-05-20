@@ -21,6 +21,7 @@ export const defaultTheme = {
   "new-base-blue": "#064b94",
   "yellow-500": "#FBA94C",
   colors: {
+    "green-sucesso": "#2bc866",
     "base-input": "#040F1A",
     "base-background": "#071422",
     "base-profile": "#0B1B2B",

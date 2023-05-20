@@ -150,7 +150,7 @@ export const DivResults = styled.div`
   }
 
   .item-rastreio:first-child {
-    border-left: 4px solid #ffd400;
+    border-left: 4px solid ${({ theme }) => theme.colors["green-sucesso"]};
   }
   .item-rastreio,
   .icone-rastreio {
@@ -247,4 +247,9 @@ export const DivResults = styled.div`
   .icone-rastreio img {
     background: #fff;
   }
+`;
+
+export const ImgLocation = styled.img`
+  width: 1rem !important;
+  height: 1rem;
 `;

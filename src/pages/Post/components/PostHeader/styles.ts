@@ -51,7 +51,7 @@ export const PostHeaderContainer = styled.section`
 export const DivHeader = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 80px auto;
+  /* margin: 80px auto; */ //Para alterar o tamanho da Div do Header de Results
   max-width: 870px;
   overflow: hidden;
 `;
@@ -87,19 +87,6 @@ export const SecondDiv = styled.div`
   h5 {
     font-size: 0.9rem;
   }
-
-  /* .linha {
-    text-align: center;
-    display: block;
-    height: 2px;
-    left: 115px;
-    position: absolute;
-    top: 25%;
-    transform: translateY(-50%);
-    width: 206px;
-    z-index: 2;
-    background-color: rgb(200, 205, 218);
-  } */
 `;
 
 export const Linha = styled.span`
