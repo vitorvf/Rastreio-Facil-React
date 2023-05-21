@@ -55,6 +55,8 @@ export const HistoryList = styled.div`
       text-transform: uppercase;
       color: #afc2d4;
       font-size: 12px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
     }
     font-size: 0.875rem;
     line-height: 1.6;

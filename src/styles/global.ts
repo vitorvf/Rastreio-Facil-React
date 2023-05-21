@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import firaCode from "../assets/fonts/FiraCode-Regular.woff";
+import imgBg from "../../src/assets/white-pattern.png";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -38,7 +39,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     background: white;
-    background-image: url(https://i.imgur.com/nGLykwe.png);
+    background-image: url(${imgBg});
     background-repeat: repeat;
     color: ${({ theme }) => theme.colors["base-text"]};
     -webkit-font-smoothing: antialiased;

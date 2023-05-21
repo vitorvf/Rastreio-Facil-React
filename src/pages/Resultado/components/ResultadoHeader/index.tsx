@@ -19,29 +19,34 @@ import {
   SecondDiv,
   TextoSpan,
 } from "./styles";
-import { DadosUsuario } from "../../../Blog/components/Profile";
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../../../lib/axios";
-import { CartContext } from "../../../../contexts/CartContext";
 import { Company } from "../..";
-import EncaminhadoCinza from "../../../../assets/Results/encaminhado-cinza.png";
+import PostadoCinza from "../../../../assets/results/results-cinza/postado-cinza.png";
+import PostadoVerde from "../../../../assets/results/results-verde/postado-verde.png";
+import EncaminhadoCinza from "../../../../assets/results/results-cinza/encaminhado-cinza.png";
+import EncaminhadoVerde from "../../../../assets/results/results-verde/encaminhado-verde.png";
+import SaiuParaEntregaCinza from "../../../../assets/results/results-cinza/saiuparanetrega-cinza.png";
+import SaiuParaEntregaVerde from "../../../../assets/results/results-verde/saiuparanetrega-verde.png";
+import EntregueCinza from "../../../../assets/results/results-cinza/entregue-cinza.png";
+import EntregueVerde from "../../../../assets/results/results-verde/entregue-verde.png";
 
 interface name {
   data?: Company;
   isLoading: boolean;
 }
 
-export function PostHeader({ isLoading, data }: name) {
+export function ResultadoHeader({ isLoading, data }: name) {
   console.log(data);
-  const ultimaData = data?.events
-    .map((event) => event.date)
-    .sort()
-    .reverse()
-    .shift();
-  // const cities = data?.events.map(event => event.city);
-  const lastCity = data?.events.map((event) => event.city).pop();
-  const local = data?.events.map((event) => event.local).pop();
-  const lastUf = data?.events.map((event) => event.uf).pop();
+  // const ultimaData = data?.events
+  //   .map((event) => event.date)
+  //   .sort()
+  //   .reverse()
+  //   .shift();
+  // // const cities = data?.events.map(event => event.city);
+  // const lastCity = data?.events.map((event) => event.city).pop();
+  // const local = data?.events.map((event) => event.local).pop();
+  // const lastUf = data?.events.map((event) => event.uf).pop();
 
   //Pegar a ultima data da encomenda Postada
   const postadoData = relativeDateFormatter(
@@ -63,7 +68,8 @@ export function PostHeader({ isLoading, data }: name) {
   const saiuEntregaData = relativeDateFormatter(
     data?.events.find(
       (event) =>
-        event.events === "Objeto saiu para entrega ao destinatário" || event.events === "Objeto está em rota de entrega" ||
+        event.events === "Objeto saiu para entrega ao destinatário" ||
+        event.events === "Objeto está em rota de entrega" ||
         event.tag === "onroute"
     )?.date,
     "customFormat"
@@ -73,6 +79,16 @@ export function PostHeader({ isLoading, data }: name) {
     data?.events.find((event) => event.tag === "delivered")?.date,
     "customFormat"
   );
+
+  const isDeliveryInPostado =
+    data?.events.some((event) => event.tag === "posted") ||
+    data?.events.some((event) => event.events === "Objeto postado");
+
+  const isDeliveryInEncaminhado =
+    data?.events.some((event) => event.tag === "movement") ||
+    data?.events.some(
+      (event) => event.events === "Objeto em trânsito - por favor aguarde"
+    );
 
   const isDeliveryInProgress =
     data?.events.some(
@@ -90,8 +106,15 @@ export function PostHeader({ isLoading, data }: name) {
       (event) => event.events === "Objeto entregue ao destinatário"
     );
 
+  <h5
+    style={{
+      color: isDeliveryInEncaminhado ? "#2bc866" : "rgb(200, 205, 218)",
+    }}
+  >
+    Encaminhado
+  </h5>;
+
   const navigate = useNavigate();
-  // const formattedDate = relativeDateFormatter(ultimaData);
 
   function goBack() {
     navigate("/");
@@ -130,23 +153,16 @@ export function PostHeader({ isLoading, data }: name) {
                 className="imgspan"
                 style={{
                   backgroundImage: `url(${
-                    data?.events[0].tag === "posted"
-                      ? "https://rastreiovf.netlify.app/images/postado-verde.png"
-                      : ""
+                    isDeliveryInPostado ? PostadoVerde : PostadoCinza
                   })`,
                 }}
-                // style={{
-                //   backgroundImage:
-                //     "url('https://rastreiovf.netlify.app/images/postado-cinza.png')",
-                // }}
               ></ImgSpan>
               <TextoSpan>
                 <h5
                   style={{
-                    color:
-                      data?.events[0]?.tag === "posted"
-                        ? `#2bc866	`
-                        : "rgb(200, 205, 218)",
+                    color: isDeliveryInPostado
+                      ? `#2bc866	`
+                      : "rgb(200, 205, 218)",
                   }}
                 >
                   Postado
@@ -168,26 +184,18 @@ export function PostHeader({ isLoading, data }: name) {
               <ImgSpan2
                 style={{
                   backgroundImage: `url(${
-                    data?.events[1]?.tag === "movement"
-                      ? "https://i.imgur.com/cwcoCO1.png"
-                      : ""
+                    isDeliveryInEncaminhado
+                      ? EncaminhadoVerde
+                      : EncaminhadoCinza
                   })`,
                 }}
-
-                // style={{
-                //   backgroundImage:
-                //     "url('https://rastreiovf.netlify.app/images/postado-cinza.png')",
-                // }}
-              >
-                {/* <img src={EncaminhadoCinza} alt="" /> */}
-              </ImgSpan2>
+              ></ImgSpan2>
               <TextoSpan>
                 <h5
                   style={{
-                    color:
-                      data?.events[1]?.tag === "movement"
-                        ? `#2bc866	`
-                        : "rgb(200, 205, 218)",
+                    color: isDeliveryInEncaminhado
+                      ? `#2bc866	`
+                      : "rgb(200, 205, 218)",
                   }}
                 >
                   Encaminhado
@@ -197,10 +205,9 @@ export function PostHeader({ isLoading, data }: name) {
 
               <Linha
                 style={{
-                  backgroundColor:
-                    data?.events[1]?.tag === "movement"
-                      ? "rgb(43, 200, 102)"
-                      : "rgb(200, 205, 218)",
+                  backgroundColor: isDeliveryInEncaminhado
+                    ? "rgb(43, 200, 102)"
+                    : "rgb(200, 205, 218)",
                 }}
               ></Linha>
             </SecondDiv>
@@ -208,10 +215,11 @@ export function PostHeader({ isLoading, data }: name) {
             <SecondDiv className="infostyle__CardDiv-sc-1wgwhwr-5 eYAzqh">
               <ImgSpan3
                 style={{
-                  backgroundImage: isDeliveryInProgress
-                    ? "url('https://rastreiovf.netlify.app/images/saiu-verde.png')"
-                    : "url('https://rastreiovf.netlify.app/images/saiu-cinza.png')",
-                  // Estilo personalizado aqui
+                  backgroundImage: `url(${
+                    isDeliveryInProgress
+                      ? SaiuParaEntregaVerde
+                      : SaiuParaEntregaCinza
+                  })`,
                 }}
               ></ImgSpan3>
 
@@ -241,9 +249,7 @@ export function PostHeader({ isLoading, data }: name) {
                 className="imgspan4"
                 style={{
                   backgroundImage: `url(${
-                    IsDeliveryEntregue
-                      ? "https://rastreiovf.netlify.app/images/entregue-verde.png"
-                      : "https://rastreiovf.netlify.app/images/entregue-cinza.png"
+                    IsDeliveryEntregue ? EntregueVerde : EntregueCinza
                   })`,
                 }}
               ></ImgSpan>

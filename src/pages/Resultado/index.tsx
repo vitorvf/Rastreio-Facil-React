@@ -1,18 +1,10 @@
-import { useCallback, useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { api } from "../../lib/axios";
 // import { PostsUsuario } from "../Blog";
-import { PostContent } from "./components/PostContent";
-import { PostHeader } from "./components/PostHeader";
 import { CartContext } from "../../contexts/CartContext";
-import { Spinner } from "../../components/Spinner";
-
-// export interface PostHeaderType extends PostsUsuario {
-//   followers: number;
-//   bio: string;
-//   name: string;
-//   avatar_url: string;
-// }
+import { ResultadoHeader } from "./components/ResultadoHeader";
+import { ResultadoContent } from "./components/ResultadoContent";
 
 export interface Company {
   id: number;
@@ -39,32 +31,13 @@ export interface Company {
   map: Map<string, any>;
 }
 
-export function Post() {
+export function Resultado() {
   const params = useParams();
   const code = params.code as string;
   const [data, setData] = useState<Company>();
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [historico, setHistorico] = useState([]);
 
-  // const [postData, setPostData] = useState<PostHeaderType>({} as PostHeaderType);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const {rastreios, isLoading} = useContext(CartContext)
-  // const { id } = useParams();
-
-  // useEffect(() => {
-
-  //   api.get(`/NL526277041BR/`)
-  //     .then(response => {
-  //       setPostData(response.data);
-  //       setIsLoading(false);
-  //       console.log(response.data)
-
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }, []);
   useEffect(() => {
     setIsLoading(true);
 
@@ -81,11 +54,8 @@ export function Post() {
 
   return (
     <>
-      <PostHeader data={data} isLoading={isLoading} />
-      {!isLoading && <PostContent data={data} />}
+      <ResultadoHeader data={data} isLoading={isLoading} />
+      {!isLoading && <ResultadoContent data={data} />}
     </>
   );
 }
-// {isLoading ? (
-//   <Spinner />
-// ) : (

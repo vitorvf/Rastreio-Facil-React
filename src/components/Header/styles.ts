@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import headerBg from "../../assets/headerBg.png";
+import headerBg from "../../assets/blue-pattern.png";
 
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 18.5rem;
-  background-image: url(https://melhorenvio.com.br/images/blue-pattern.png?c5103305495a891f76a824f377afb9f8);
+  background-image: url(${headerBg});
   background-size: cover;
   display: flex;
   align-items: center;

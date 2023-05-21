@@ -67,7 +67,7 @@ export const SecondDiv = styled.div`
   position: relative;
 
   img {
-    background-image: url("https://rastreiovf.netlify.app/images/postado-verde.png");
+    /* background-image: url("https://rastreiovf.netlify.app/images/postado-verde.png"); */
     /* Outras propriedades de estilo */
     width: 500px;
     height: 300px;
@@ -103,7 +103,6 @@ export const Linha = styled.span`
 `;
 
 export const ImgSpan = styled.span`
-  background-image: url("https://rastreiovf.netlify.app/images/postado-cinza.png");
   background-repeat: no-repeat;
   /* Outras propriedades de estilo */
   width: 500px;
@@ -117,7 +116,6 @@ export const ImgSpan = styled.span`
 `;
 
 export const ImgSpan2 = styled.span`
-  background-image: url("https://rastreiovf.netlify.app/images/encaminhado-cinza.png");
   background-repeat: no-repeat;
   /* Outras propriedades de estilo */
   width: 500px;
@@ -131,8 +129,6 @@ export const ImgSpan2 = styled.span`
 `;
 
 export const ImgSpan3 = styled.span`
-  background-image: url("https://rastreiovf.netlify.app/images/saiu-cinza.png");
-  /* Outras propriedades de estilo */
   width: 500px;
   height: 300px;
   display: block;
@@ -144,8 +140,6 @@ export const ImgSpan3 = styled.span`
 `;
 
 export const ImgSpan4 = styled.span`
-  background-image: url("https://rastreiovf.netlify.app/images/entregue-cinza.png");
-  /* Outras propriedades de estilo */
   width: 500px;
   height: 300px;
   display: block;

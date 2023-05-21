@@ -23,7 +23,7 @@ import { relativeDateFormatter } from "../../../../utils/formatter";
 interface RastreioContent {
   data?: Company;
 }
-export function PostContent({ data }: RastreioContent) {
+export function ResultadoContent({ data }: RastreioContent) {
   return (
     <PostContentContainer>
       {/* <div>{data?.created_at}</div> */}
