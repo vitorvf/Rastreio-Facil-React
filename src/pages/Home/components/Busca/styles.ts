@@ -14,6 +14,11 @@ export const ProfileContainer = styled.section`
   padding: 2rem 2.5rem;
   display: flex;
   gap: 2rem;
+
+  @media (max-width: 767px) {
+    justify-content: center !important;
+    text-align: center !important;
+  }
 `;
 
 export const ProfilePicture = styled.img`
@@ -22,9 +27,16 @@ export const ProfilePicture = styled.img`
   height: 9.25rem;
   border-radius: 8px;
   object-fit: cover;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const ProfileDetails = styled.div`
+  @media (max-width: 767px) {
+    align-items: center;
+  }
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -47,7 +59,20 @@ export const ProfileDetails = styled.div`
       line-height: 130%;
     }
   }
+  @media (max-width: 767px) {
+    ul {
+      gap: 9px !important;
+      font-size: 13px;
+    }
 
+    li {
+      gap: 7px !important;
+    }
+
+    button {
+      display: none;
+    }
+  }
   ul {
     display: flex;
     align-items: center;

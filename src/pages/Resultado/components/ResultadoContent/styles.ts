@@ -247,6 +247,17 @@ export const DivResults = styled.div`
   .icone-rastreio img {
     background: #fff;
   }
+
+  @media (max-width: 767px) {
+    .icone-rastreio img {
+      height: 26px;
+      width: 26px;
+    }
+
+    .linha-dotted {
+      top: 24px;
+    }
+  }
 `;
 
 export const ImgLocation = styled.img`
