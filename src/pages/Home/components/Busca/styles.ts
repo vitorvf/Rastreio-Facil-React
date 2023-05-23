@@ -5,7 +5,8 @@ export const ProfileContainer = styled.section`
   width: 100%;
   min-height: 13.25rem;
   margin-top: -5.5rem;
-  background-image: url(${imgBg});
+  /* background-image: url(${imgBg}); */
+  background: white;
 
   /* background: ${({ theme }) => theme.colors["base-profile"]}; */
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -16,7 +17,8 @@ export const ProfileContainer = styled.section`
 `;
 
 export const ProfilePicture = styled.img`
-  width: 9.25rem;
+  width: 12.25rem;
+  /* width: 9.25rem; */
   height: 9.25rem;
   border-radius: 8px;
   object-fit: cover;
@@ -28,7 +30,7 @@ export const ProfileDetails = styled.div`
   flex-direction: column;
 
   p {
-    color: ${({ theme }) => theme.colors["base-second-subtitle"]};
+    color: ${({ theme }) => theme.colors["base-new"]};
   }
 
   header {

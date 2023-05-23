@@ -19,8 +19,6 @@ import {
   SecondDiv,
   TextoSpan,
 } from "./styles";
-import { useContext, useEffect, useState } from "react";
-import { api } from "../../../../lib/axios";
 import { Company } from "../..";
 import PostadoCinza from "../../../../assets/results/results-cinza/postado-cinza.png";
 import PostadoVerde from "../../../../assets/results/results-verde/postado-verde.png";
@@ -37,17 +35,6 @@ interface name {
 }
 
 export function ResultadoHeader({ isLoading, data }: name) {
-  console.log(data);
-  // const ultimaData = data?.events
-  //   .map((event) => event.date)
-  //   .sort()
-  //   .reverse()
-  //   .shift();
-  // // const cities = data?.events.map(event => event.city);
-  // const lastCity = data?.events.map((event) => event.city).pop();
-  // const local = data?.events.map((event) => event.local).pop();
-  // const lastUf = data?.events.map((event) => event.uf).pop();
-
   //Pegar a ultima data da encomenda Postada
   const postadoData = relativeDateFormatter(
     data?.events.find((event) => event.tag === "posted")?.date,
@@ -117,7 +104,7 @@ export function ResultadoHeader({ isLoading, data }: name) {
   const navigate = useNavigate();
 
   function goBack() {
-    navigate("/");
+    navigate(-1);
   }
 
   function goHistory() {

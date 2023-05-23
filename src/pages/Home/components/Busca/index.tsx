@@ -7,8 +7,9 @@ import {
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
 import { useCallback, useEffect, useState } from "react";
-import caixa from "../../../../assets/Caixa.svg";
+import caixa from "../../../../assets/Caixa.png";
 import { SearchInput } from "../SearchInput";
+import { useNavigate } from "react-router-dom";
 
 export interface DadosUsuario {
   login: string;
@@ -21,6 +22,12 @@ export interface DadosUsuario {
 }
 
 export function Busca() {
+  const navigate = useNavigate();
+
+  function goHistorico() {
+    navigate("/historico");
+  }
+
   return (
     <ProfileContainer>
       <>
@@ -30,7 +37,12 @@ export function Busca() {
           <header>
             <h1>Rastreie suas encomendas gratuitamente</h1>
 
-            <ExternalLink text="Github" href="" target="_blank" />
+            <ExternalLink
+              as="button"
+              text="Historico"
+              style={{ marginRight: "-16px" }}
+              onClick={goHistorico}
+            />
           </header>
           <p>Informe o código de rastreio abaixo para rastreamento</p>
           <SearchInput />

@@ -46,11 +46,6 @@ export function Resultado() {
       .catch((err) => setError(err))
       .finally(() => setIsLoading(false));
   }, [code]);
-  const ultimaData = data?.events
-    .map((event) => event.date)
-    .sort()
-    .reverse()
-    .shift();
 
   return (
     <>

@@ -37,11 +37,11 @@ export function Historico() {
     localStorage.setItem("trackingHistory", JSON.stringify(updatedHistory));
   };
 
-  function gohome() {
-    navigate("/");
+  function goBack() {
+    navigate(-1);
   }
 
-  function goGit() {
+  function goHome() {
     navigate("/");
   }
 
@@ -50,18 +50,13 @@ export function Historico() {
       <header>
         <ExternalLink
           as="button"
-          onClick={gohome}
+          onClick={goBack}
           icon={<FontAwesomeIcon icon={faChevronLeft} />}
           text="Voltar"
           variant="iconLeft"
         />
 
-        <ExternalLink
-          as="button"
-          text="Ver no Historico de Rastreios"
-          target="_blank"
-          onClick={goGit}
-        />
+        <ExternalLink as="button" text="Pagina inicial" onClick={goHome} />
       </header>
 
       <HistoryContainer>
