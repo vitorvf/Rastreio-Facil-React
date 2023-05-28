@@ -82,10 +82,20 @@ export const SecondDiv = styled.div`
   span {
     color: rgb(59, 63, 81);
     font-size: 14px;
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+    }
   }
 
   h5 {
     font-size: 0.9rem;
+
+    @media (max-width: 767px) {
+      /* font-size: 11px; */
+      font-size: 8px;
+      /* line-height: 13px; */
+    }
   }
 `;
 
@@ -100,6 +110,13 @@ export const Linha = styled.span`
   width: 206px;
   z-index: 2;
   background-color: rgb(200, 205, 218);
+
+  @media (max-width: 767px) {
+    height: 2px;
+    left: 48px;
+    top: 15%;
+    width: 75px;
+  }
 `;
 
 export const ImgSpan = styled.span`
@@ -113,6 +130,11 @@ export const ImgSpan = styled.span`
   width: 40px;
   z-index: 3;
   background-size: contain;
+
+  @media (max-width: 767px) {
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 export const ImgSpan2 = styled.span`
@@ -126,9 +148,15 @@ export const ImgSpan2 = styled.span`
   width: 40px;
   z-index: 3;
   background-size: contain;
+
+  @media (max-width: 767px) {
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 export const ImgSpan3 = styled.span`
+  background-repeat: no-repeat;
   width: 500px;
   height: 300px;
   display: block;
@@ -137,9 +165,15 @@ export const ImgSpan3 = styled.span`
   width: 40px;
   z-index: 3;
   background-size: contain;
+
+  @media (max-width: 767px) {
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 export const ImgSpan4 = styled.span`
+  background-repeat: no-repeat;
   width: 500px;
   height: 300px;
   display: block;
@@ -148,6 +182,11 @@ export const ImgSpan4 = styled.span`
   width: 40px;
   z-index: 3;
   background-size: contain;
+
+  @media (max-width: 767px) {
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 export const TextoSpan = styled.div`

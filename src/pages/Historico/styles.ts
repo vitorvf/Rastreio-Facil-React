@@ -47,6 +47,10 @@ export const HistoryList = styled.div`
     border-collapse: collapse;
     min-width: 600px;
 
+    @media (max-width: 767px) {
+      min-width: 100px;
+    }
+
     th {
       background-color: ${(props) => props.theme["new-base-blue"]};
       padding: 1rem;

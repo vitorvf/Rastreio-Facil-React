@@ -1,21 +1,47 @@
 import styled from "styled-components";
 
-export const SearchInputContainer = styled.form`
- 
- //Codigo Antigo
- /* width: 100%;
-  margin-top: 4.5rem;
-  margin-bottom: 3rem; */
+export const AvisoErro = styled.small`
+  color: red;
+`;
 
-    width: 82%;
-    /* margin-top: 4.5rem; */
-    margin-bottom: 1rem;
+export const Rastrear = styled.span`
+  margin-left: 5px;
+`;
+
+export const SearchInputContainer = styled.form`
+  display: flex;
+  position: relative;
+  width: 82%;
+  margin-bottom: 1rem;
+
+  button {
+    /* border: 1px solid #0450a0; */
+    padding: 9px;
+    right: 0px;
+    position: absolute;
+    /* padding: 9px 30px; */
+    color: white;
+    background: #0450a0;
+    border: none;
+    border-radius: 0 6px 8px 0;
+    /* border-radius: 6px; */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    width: 25%;
+  }
 
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 0.85rem;
+
+    @media (max-width: 767px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     h3 {
       font-size: ${({ theme }) => theme.textSizes["title-title-s"]};

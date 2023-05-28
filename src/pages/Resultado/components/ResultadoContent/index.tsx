@@ -1,8 +1,7 @@
 import {
-  Card,
   DivResults,
-  HeaderResults,
   ImgLocation,
+  NovaConsulta,
   PostContentContainer,
 } from "./styles";
 import ReactMarkdown from "react-markdown";
@@ -19,6 +18,7 @@ import transito from "../../../../assets/Results/transito.svg";
 import location from "../../../../assets/Results/svgexport-5.svg";
 
 import { relativeDateFormatter } from "../../../../utils/formatter";
+import { Link } from "react-router-dom";
 
 interface RastreioContent {
   data?: Company;
@@ -26,9 +26,8 @@ interface RastreioContent {
 export function ResultadoContent({ data }: RastreioContent) {
   return (
     <PostContentContainer>
-      {/* <div>{data?.created_at}</div> */}
       <DivResults>
-        {/* {!data?.success && <h1>{data?.message}</h1>} */}
+        {data === undefined && <h1>Rastreamento não encontrado</h1>}
         <ul className="conteudo">
           {data?.events
             ?.sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -73,6 +72,11 @@ export function ResultadoContent({ data }: RastreioContent) {
             ))}
         </ul>
       </DivResults>
+      <NovaConsulta>
+        <Link to="/" title="Nova consulta">
+          <button>Nova consulta</button>
+        </Link>
+      </NovaConsulta>
     </PostContentContainer>
   );
 }

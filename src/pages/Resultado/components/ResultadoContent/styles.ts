@@ -1,78 +1,5 @@
 import styled from "styled-components";
 
-export const HeaderResults = styled.header`
-  border-bottom: 1px solid rgb(227, 227, 230);
-  padding: 10px 30px;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 1fr;
-  background: white;
-
-  h3 {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #333333;
-  }
-`;
-
-export const Card = styled.div`
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 5rem;
-    text-align: center;
-    color: black;
-  }
-
-  ul {
-    margin: 0px auto;
-    width: 100%;
-    background: var(--full-white);
-    border-radius: 8px;
-    overflow-y: auto;
-    max-height: 45rem;
-    box-shadow: var(--primary-shadow);
-  }
-
-  li {
-    background: rgb(17, 33, 49);
-    padding: 20px 30px;
-    display: grid;
-    gap: 20px;
-    -webkit-box-align: center;
-    align-items: center;
-    grid-template-columns: 1fr 1fr;
-    color: var(--gray-light);
-
-    &:nth-child(2n) {
-      background-color: rgb(7 20 34);
-    }
-  }
-
-  p {
-    margin: 3px 5px 0px 0px;
-
-    font-size: 0.8rem;
-    color: var(--gray-light);
-  }
-
-  h5 {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--gray-light);
-  }
-
-  .h5-left {
-    font-weight: 400;
-    font-size: 0.9rem;
-    color: var(--gray-light);
-  }
-
-  .p-time {
-    display: flex;
-  }
-`;
-
 export const PostContentContainer = styled.section`
   display: flex;
   flex-direction: column;
@@ -263,4 +190,29 @@ export const DivResults = styled.div`
 export const ImgLocation = styled.img`
   width: 1rem !important;
   height: 1rem;
+  margin-right: 5px;
+
+  @media (max-width: 767px) {
+    margin-right: 0px;
+  }
+`;
+
+export const NovaConsulta = styled.a`
+  button {
+    padding: 11px 30px;
+    color: white;
+    background: #0450a0;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    display: block;
+    margin: 15px auto 1px;
+
+    &:hover {
+      box-shadow: 0px 4px 15px rgba(137, 18, 255, 0.1);
+      transform: scale(1.02);
+    }
+  }
 `;
