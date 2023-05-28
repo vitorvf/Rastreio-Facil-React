@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import headerBg from "../../assets/blue-pattern.webp";
+import headerBg from "../../assets/blue-pattern.png";
 
 export const HeaderContainer = styled.header`
   width: 100%;
