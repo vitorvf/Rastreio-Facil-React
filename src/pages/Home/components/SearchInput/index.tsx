@@ -3,20 +3,10 @@ import * as z from "zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useContext } from "react";
-import { CartContext } from "../../../../contexts/CartContext";
-import { api } from "../../../../lib/axios";
 import { useNavigate } from "react-router-dom";
-import {
-  faMagnifyingGlass,
-  faPersonRunning,
-  faShieldHalved,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { SubmitHandler, useForm } from "react-hook-form";
-// import { useNavigate } from "react-router-dom";
-// import { z } from "zod";
-// import { useGlobalContext } from "../contexts/GlobalContext";
+import { RastreioContext } from "../../../../contexts/RastreioContext";
 
 const schema = z
   .object({
@@ -38,7 +28,7 @@ export function SearchInput() {
   });
 
   const navigate = useNavigate();
-  const { setCode } = useContext(CartContext);
+  const { setCode } = useContext(RastreioContext);
 
   const handleValid: SubmitHandler<Schema> = (data) => {
     setCode(data.code);
@@ -75,70 +65,3 @@ export function SearchInput() {
     </>
   );
 }
-
-//Ultimo antigo, o mais recente.
-
-// const searchFormSchema = z.object({
-//   query: z.string(),
-// });
-
-// type SearchFormInput = z.infer<typeof searchFormSchema>;
-
-// interface SearchInputProps {}
-
-// export function SearchInput(props: SearchInputProps) {
-//   const { register, handleSubmit } = useForm<SearchFormInput>({
-//     resolver: zodResolver(searchFormSchema),
-//   });
-
-//   const { getPosts } = useContext(CartContext);
-
-//   async function handleSearchPosts(data: SearchFormInput) {
-//     await getPosts(data.query);
-//   }
-
-//   return (
-//     <SearchInputContainer onSubmit={handleSubmit(handleSearchPosts)}>
-//       <header>
-//         <h3>Publicações</h3>
-//         <span> publicações</span>
-//       </header>
-
-//       <input type="text" placeholder="Buscar conteúdo" {...register("query")} />
-//     </SearchInputContainer>
-//   );
-// }
-
-//Antigo dos Antigos
-
-// const searchFormSchema = z.object({
-//   query: z.string(),
-// });
-
-// type SearchFormInput = z.infer<typeof searchFormSchema>;
-
-// interface SearchInputProps {
-//   // postsLength: number;
-//   getPosts: (query?: string) => Promise<void>;
-// }
-
-// export function SearchInput({ getPosts }: SearchInputProps) {
-//   const { register, handleSubmit } = useForm<SearchFormInput>({
-//     resolver: zodResolver(searchFormSchema),
-//   });
-
-//   async function handleSearchPosts(data: SearchFormInput) {
-//     await getPosts(data.query);
-//   }
-
-//   return (
-//     <SearchInputContainer onSubmit={handleSubmit(handleSearchPosts)}>
-//       <header>
-//         <h3>Publicações</h3>
-//         <span> publicações</span>
-//       </header>
-
-//       <input type="text" placeholder="Buscar conteúdo" {...register("query")} />
-//     </SearchInputContainer>
-//   );
-// }

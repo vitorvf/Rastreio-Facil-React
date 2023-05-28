@@ -4,12 +4,9 @@ import {
   NovaConsulta,
   PostContentContainer,
 } from "./styles";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
 import { Company } from "../..";
 import entregue from "../../../../assets/Results/entregue.svg";
-import localização from "../../../../assets/Results/localização.svg";
 import naoentregue from "../../../../assets/Results/nao-entregue.svg";
 import pacote from "../../../../assets/Results/pacote.svg";
 import postado from "../../../../assets/Results/postado.svg";

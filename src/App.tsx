@@ -3,17 +3,16 @@ import { ThemeProvider } from "styled-components";
 import { Router } from "./Router";
 import { GlobalStyles } from "./styles/global";
 import { defaultTheme } from "./styles/theme/defaultTheme";
-import { CartContextProvider } from "./contexts/CartContext";
+import { RastreioContextProvider } from "./contexts/RastreioContext";
 
 export function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
-        <CartContextProvider>
+        <RastreioContextProvider>
           <Router />
-          </CartContextProvider>
-                
+        </RastreioContextProvider>
       </ThemeProvider>
     </BrowserRouter>
   );

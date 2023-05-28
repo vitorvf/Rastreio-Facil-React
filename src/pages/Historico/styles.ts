@@ -11,8 +11,7 @@ export const DivTest = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  /* box-shadow: 0px 2px 28px rgba(0,0,0,0.2); */
-  /* border-radius: 10px; */
+
   margin-top: -5.5rem;
 
   header {
@@ -26,7 +25,6 @@ export const DivTest = styled.div`
 
 export const HistoryContainer = styled.div`
   flex: 1;
-  /* padding: 3.5rem; */
   display: flex;
   flex-direction: column;
 
@@ -55,7 +53,6 @@ export const HistoryList = styled.div`
       background-color: ${(props) => props.theme["new-base-blue"]};
       padding: 1rem;
       text-align: center;
-      /* color: ${(props) => props.theme["gray-100"]}; */
       text-transform: uppercase;
       color: #afc2d4;
       font-size: 12px;
@@ -121,28 +118,4 @@ export const ImgDelete = styled.img`
 
 export const ParafragoNaoEncontrado = styled.p`
   text-align: center;
-`;
-
-const STATUS_COLORS = {
-  yellow: "yellow-500",
-  green: "green-500",
-  red: "red-500",
-} as const;
-
-interface StatusProps {
-  statusColor: keyof typeof STATUS_COLORS;
-}
-
-export const Status = styled.span<StatusProps>`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  &::before {
-    content: "";
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
-  }
 `;

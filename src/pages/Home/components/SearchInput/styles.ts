@@ -78,11 +78,9 @@ export const SearchInputContainer = styled.form`
 
   input {
     width: 100%;
-    //Antigo
-    /* padding: 0.75rem 1rem; */
+
     padding: 0.5rem 1rem;
     border-radius: 6px;
-    /* background: ${({ theme }) => theme.colors["base-input"]}; */
     border: 1px solid ${({ theme }) => theme.colors["base-input-border"]};
     color: ${({ theme }) => theme.colors["base-text"]};
     transition: 0.4s;

@@ -7,7 +7,6 @@ import {
   HistoryList,
   ImgDelete,
   ParafragoNaoEncontrado,
-  Status,
 } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -69,9 +68,6 @@ export function Historico() {
                   <th>
                     Clique em seu código para ser redirecionado à sua encomenda.
                   </th>
-                  {/* <th>Duração</th> */}
-                  {/* <th>Duração</th>
-                  <th>Status</th> */}
                 </tr>
               </thead>
               {trackingHistory.map((trackingCode, index) => (
@@ -95,11 +91,6 @@ export function Historico() {
                         alt="Deletar"
                       />
                     </td>
-                    {/* <td>1 minutos</td>
-                    <td>data</td> */}
-                    {/* <td>
-                      <Status statusColor="green">Concluído</Status>
-                    </td> */}
                   </tr>
                 </tbody>
               ))}

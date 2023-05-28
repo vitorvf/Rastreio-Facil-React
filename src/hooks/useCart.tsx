@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { RastreioContext } from "../contexts/RastreioContext";
 
-export function useCart() {
-  const context = useContext(CartContext);
+export function useRastreio() {
+  const context = useContext(RastreioContext);
   return context;
 }

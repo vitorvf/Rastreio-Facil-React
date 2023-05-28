@@ -72,7 +72,6 @@ export const DivResults = styled.div`
   }
 
   ul li {
-    /* margin-bottom: 10px; */
     margin-bottom: 15px;
   }
 

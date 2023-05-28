@@ -1,11 +1,7 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import {
-  faCalendar,
-  faChevronLeft,
-  faComment,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ExternalLink } from "../../../../components/ExternalLink";
 import { Spinner } from "../../../../components/Spinner";
 import { relativeDateFormatter } from "../../../../utils/formatter";

@@ -6,7 +6,6 @@ import {
   faPersonRunning,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
-import { useCallback, useEffect, useState } from "react";
 import caixa from "../../../../assets/Caixa.png";
 import { SearchInput } from "../SearchInput";
 import { useNavigate } from "react-router-dom";

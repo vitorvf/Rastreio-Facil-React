@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../lib/axios";
-// import { PostsUsuario } from "../Blog";
-import { CartContext } from "../../contexts/CartContext";
 import { ResultadoHeader } from "./components/ResultadoHeader";
 import { ResultadoContent } from "./components/ResultadoContent";
+import { RastreioContext } from "../../contexts/RastreioContext";
 
 export interface Company {
   id: number;
