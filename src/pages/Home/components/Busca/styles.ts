@@ -15,7 +15,7 @@ export const ProfileContainer = styled.section`
   display: flex;
   gap: 2rem;
 
-  @media (max-width: 767px) {
+  @media (max-width: 480px) {
     justify-content: center !important;
     text-align: center !important;
   }
@@ -28,13 +28,17 @@ export const ProfilePicture = styled.img`
   border-radius: 8px;
   object-fit: cover;
 
-  @media (max-width: 767px) {
+  @media (max-width: 480px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 512px) and (max-width: 829px) {
     display: none;
   }
 `;
 
 export const ProfileDetails = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: 480px) {
     align-items: center;
   }
   flex: 1;
@@ -59,7 +63,7 @@ export const ProfileDetails = styled.div`
       line-height: 130%;
     }
   }
-  @media (max-width: 767px) {
+  @media (max-width: 480px) {
     ul {
       gap: 9px !important;
       font-size: 13px;

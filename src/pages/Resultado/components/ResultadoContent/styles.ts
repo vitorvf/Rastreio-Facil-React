@@ -175,7 +175,7 @@ export const DivResults = styled.div`
     background: #fff;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 480px) {
     .icone-rastreio img {
       height: 26px;
       width: 26px;

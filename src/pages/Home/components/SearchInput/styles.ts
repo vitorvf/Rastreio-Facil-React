@@ -6,6 +6,15 @@ export const AvisoErro = styled.small`
 
 export const Rastrear = styled.span`
   margin-left: 5px;
+
+  @media (max-width: 480px) {
+    font-size: 0;
+    visibility: hidden;
+  }
+
+  @media screen and (min-width: 512px) and (max-width: 829px) {
+    display: none;
+  }
 `;
 
 export const SearchInputContainer = styled.form`
@@ -14,21 +23,34 @@ export const SearchInputContainer = styled.form`
   width: 82%;
   margin-bottom: 1rem;
 
+  @media (max-width: 480px) {
+    width: 92%;
+  }
+
   button {
-    /* border: 1px solid #0450a0; */
     padding: 9px;
     right: 0px;
     position: absolute;
-    /* padding: 9px 30px; */
     color: white;
     background: #0450a0;
     border: none;
     border-radius: 0 6px 8px 0;
-    /* border-radius: 6px; */
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     width: 25%;
+
+    @media (max-width: 480px) {
+      display: flex;
+      justify-content: center;
+    }
+
+    svg {
+      @media (max-width: 480px) {
+        margin-left: 5px;
+        height: 23px;
+      }
+    }
   }
 
   header {
@@ -37,7 +59,7 @@ export const SearchInputContainer = styled.form`
     justify-content: space-between;
     margin-bottom: 0.85rem;
 
-    @media (max-width: 767px) {
+    @media (max-width: 480px) {
       display: flex;
       align-items: center;
       justify-content: center;
