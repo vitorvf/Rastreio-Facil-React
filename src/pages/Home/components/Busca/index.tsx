@@ -6,7 +6,7 @@ import {
   faPersonRunning,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
-import caixa from "../../../../assets/Caixa.png";
+import caixa from "../../../../assets/Caixa.webp";
 import { SearchInput } from "../SearchInput";
 import { useNavigate } from "react-router-dom";
 
@@ -30,7 +30,7 @@ export function Busca() {
   return (
     <ProfileContainer>
       <>
-        <ProfilePicture src={caixa} />
+        <ProfilePicture src={caixa} alt="Caixa" />
 
         <ProfileDetails>
           <header>

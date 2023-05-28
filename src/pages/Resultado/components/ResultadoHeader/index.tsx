@@ -16,14 +16,14 @@ import {
   TextoSpan,
 } from "./styles";
 import { Company } from "../..";
-import PostadoCinza from "../../../../assets/results/results-cinza/postado-cinza.png";
-import PostadoVerde from "../../../../assets/results/results-verde/postado-verde.png";
-import EncaminhadoCinza from "../../../../assets/results/results-cinza/encaminhado-cinza.png";
-import EncaminhadoVerde from "../../../../assets/results/results-verde/encaminhado-verde.png";
-import SaiuParaEntregaCinza from "../../../../assets/results/results-cinza/saiuparanetrega-cinza.png";
-import SaiuParaEntregaVerde from "../../../../assets/results/results-verde/saiuparanetrega-verde.png";
-import EntregueCinza from "../../../../assets/results/results-cinza/entregue-cinza.png";
-import EntregueVerde from "../../../../assets/results/results-verde/entregue-verde.png";
+import PostadoCinza from "../../../../assets/results/results-cinza/postado-cinza.webp";
+import PostadoVerde from "../../../../assets/results/results-verde/postado-verde.webp";
+import EncaminhadoCinza from "../../../../assets/results/results-cinza/encaminhado-cinza.webp";
+import EncaminhadoVerde from "../../../../assets/results/results-verde/encaminhado-verde.webp";
+import SaiuParaEntregaCinza from "../../../../assets/results/results-cinza/saiuparanetrega-cinza.webp";
+import SaiuParaEntregaVerde from "../../../../assets/results/results-verde/saiuparanetrega-verde.webp";
+import EntregueCinza from "../../../../assets/results/results-cinza/entregue-cinza.webp";
+import EntregueVerde from "../../../../assets/results/results-verde/entregue-verde.webp";
 
 interface name {
   data?: Company;

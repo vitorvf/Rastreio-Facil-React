@@ -10,7 +10,7 @@ import {
 } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import imgpackage from "../../assets/Results/img-package.png";
+import imgpackage from "../../assets/Results/img-package.webp";
 import imgdelete from "../../assets/Results/delete.svg";
 
 export function Historico() {

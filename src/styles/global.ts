@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import firaCode from "../assets/fonts/FiraCode-Regular.woff";
-import imgBg from "../../src/assets/white-pattern.png";
+import imgBg from "../../src/assets/white-pattern.webp";
 
 export const GlobalStyles = createGlobalStyle`
 
