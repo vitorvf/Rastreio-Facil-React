@@ -36,12 +36,21 @@ O projeto foi extensivamente otimizado para buscar o máximo de resultados orgâ
 Resultado Final: https://rastreiofacil.netlify.app/
 
 
-## 📝 Tecnologias 
+## 🛠️ Nesse projeto foi utilizado
 Para a realização desse projeto foi utilizado as seguintes tecnologias/linguagens: 
-- [HTML 5]() 
-- [CSS]()
-- [Bootstrap ](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
-- [JavaScript](https://www.javascript.com/)
+- [React-Js](https://react.dev/) 
+- [Typescript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- [React Router Dom](https://reactrouter.com/en/main)
+- [Validações de formulário com Zod](https://zod.dev/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [API Melhor Rastreio](https://api.melhorrastreio.com.br)
+- [Vite](https://vitejs.dev/)
+- [Context API](https://legacy.reactjs.org/docs/context.html)
+
+
 
 
 
