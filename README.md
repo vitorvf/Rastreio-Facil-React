@@ -14,7 +14,7 @@
 Rastreamento de encomendas através de uma API.
 
 ## ℹ️ Sobre o projeto 
-O Projeto consiste em uma Landing Page com informações sobre a empresa, os serviços prestados, contatos e um redirecionamento para a pagina de estoque localizada em outro site. 
+Basta digitar o código da sua encomenda para obter instantaneamente informações detalhadas sobre o seu status. Além disso, o Rastreio Fácil possui uma página de histórico, onde você pode revisar todas as suas pesquisas anteriores. Tudo isso pensado para facilitar o controle de múltiplas encomendas. Com validações de formulário utilizando React Hook Form e Zod e armazenamento local com Local Storage, suas pesquisas ficam salvas para acessá-las a qualquer momento. Utilizo a API do Melhor Rastreio, para fornecer informações atualizadas sobre suas encomendas. 
 
 
 
@@ -23,17 +23,7 @@ O Projeto consiste em uma Landing Page com informações sobre a empresa, os ser
 ![Screenshot_20210302_142426](https://raw.githubusercontent.com/vitorvf/rastreio-ts/master/src/assets/Screenshot-home.png)
 ![Screenshot_20210302_142426](https://raw.githubusercontent.com/vitorvf/rastreio-ts/master/src/assets/Screenshot-results.png)
 ![Screenshot_20210302_142426](https://raw.githubusercontent.com/vitorvf/rastreio-ts/master/src/assets/Screenshot-history.png)
-
-
-## SEO
-O projeto foi extensivamente otimizado para buscar o máximo de resultados orgânicos pelo Google utilizando técnicas de SEO
-
-![Screenshot_20210302_142426](https://i.imgur.com/HNoASUG.png)
-
-
-
-
-Resultado Final: https://rastreiofacil.netlify.app/
+ Resultado Final: [https://rastreiofacil.netlify.app/](https://rastreiofacil.netlify.app/)
 
 
 ## 🛠️ Nesse projeto foi utilizado
