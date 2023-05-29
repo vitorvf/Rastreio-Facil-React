@@ -107,7 +107,7 @@ export const Linha = styled.span`
   position: absolute;
   top: 25%;
   transform: translateY(-50%);
-  width: 206px;
+  width: 205px;
   z-index: 2;
   background-color: rgb(200, 205, 218);
 
